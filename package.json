@@ -20,6 +20,7 @@
     "express": "^4.19.2",
     "express-session": "^1.18.0",
     "googleapis": "^144.0.0",
+    "http": "^0.0.1-security",
     "nodemon": "^3.1.4",
     "open": "^10.1.0",
     "passport": "^0.7.0",
