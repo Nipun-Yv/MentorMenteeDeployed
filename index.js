@@ -179,7 +179,7 @@ app.post("/profile",async (req,res)=>{
         res.redirect("/profile");
       }
       else{
-        await db.query("update mentors set fullname=$1,credentials=$2,linkedin=$3,organisation=$4,price=$5 card=$6 where mid=$7",
+        await db.query("update mentors set fullname=$1,credentials=$2,linkedin=$3,organisation=$4,price=$5,card=$6 where mid=$7",
           [req.body.name,req.body.credentials,req.body.linkedin,req.body.organisation,req.body.pricing,req.body.tags,req.user.mid]
         )
         res.redirect("/profile");
