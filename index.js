@@ -17,11 +17,10 @@ const saltRounds=10;
 const app=express();
 const port=3000;
 const db=new pg.Client({
-    database:"AdvanceMent",
-    port:5432,
-    password:"Nipun@06",//make ENV
-    host:"localhost",
-    user:"postgres"
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 })
 db.connect();
 app.use(express.static("./public"))
