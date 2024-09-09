@@ -15,7 +15,7 @@ import ev from "dotenv"
 ev.config()
 const saltRounds=10;
 const app=express();
-const port=3000 || process.env.PORT;
+const port=process.env.PORT || 3000;
 const host = process.env.PGHOST;
 const port1 = process.env.PGPORT;
 const user = process.env.PGUSER;
@@ -117,7 +117,7 @@ app.post("/book",async(req,res)=>{
     console.log(req.body);
     try{
     await db.query("insert into conn values($1,$2,$3,$4,$5,$6,$7)",[req.body.mid,req.user.mid,new Date().toLocaleDateString(),req.body.price,false,null,req.body.description])
-    res.redirect("/home");}
+    res.redirect(process.env.RAZOR_PAY);}
     catch(err){
       console.log(err.message);
       res.redirect("/home");
