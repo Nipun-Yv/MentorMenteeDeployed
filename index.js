@@ -16,8 +16,15 @@ ev.config()
 const saltRounds=10;
 const app=express();
 const port=3000 || process.env.PORT;
+const host = process.env.PGHOST;
+const port1 = process.env.PGPORT;
+const user = process.env.PGUSER;
+const password = process.env.PGPASSWORD;
+const database = process.env.PGDATABASE;
+const connectionString = `postgresql://${user}:${password}@${host}:${port1}/${database}`;
+
 const db=new pg.Client({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: connectionString,
   ssl: {
     rejectUnauthorized: false
   }
