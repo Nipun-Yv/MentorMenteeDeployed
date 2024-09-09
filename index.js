@@ -13,10 +13,10 @@ import path from 'path';
 import Anthropic from "@anthropic-ai/sdk";
 import ev from "dotenv"
 import http from "http"
-const server = http.createServer(app);
+// const server = http.createServer(app);
 
-server.keepAliveTimeout = 120000; 
-server.headersTimeout = 120000;
+// server.keepAliveTimeout = 120000; 
+// server.headersTimeout = 120000;
 ev.config()
 const saltRounds=10;
 const app=express();
