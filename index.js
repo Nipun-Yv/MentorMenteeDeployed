@@ -15,7 +15,7 @@ import ev from "dotenv"
 ev.config()
 const saltRounds=10;
 const app=express();
-const port=3000;
+const port=3000 || process.env.PORT;
 const db=new pg.Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
