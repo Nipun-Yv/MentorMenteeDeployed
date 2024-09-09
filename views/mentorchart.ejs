@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/styles/index.css" rel="stylesheet"/>
+</head>
+<body>
+    <h2>Learning Dashboard</h2>
+    <br>
+    <div class="module-container">
+        <%for(var i=0;i<modules.length;i++){%>
+            <div class="module">
+                <div class="number">
+                    <p>Module <%=modules[i].mno%></p>
+                    <p class="heading"><%=modules[i].heading%></p>
+                    <textarea hidden></textarea>
+                </div>
+                <div class="completion-time">
+                    <p><%=modules[i].duration%></p>
+                    <textarea hidden></textarea>
+                </div>
+                <div class="description">
+                    <p><%=modules[i].description%></p>
+                    <textarea hidden></textarea>
+                </div>
+                <div class="hyperlinks">Hyperlinks</div>
+                <div class="link-list" hidden><textarea>Hello there</textarea></div>
+                <div class="commit">
+                    <button >BACK</button>
+                    <button  onclick="postModule(event)"  >COMMIT</button>
+                </div>
+            </div>
+            <%}%>
+
+                <!-- <div class="module">
+            <div class="number">MODULE 1</div>
+            <div class="completion-time"> 13Hrs</div>
+            <div class="description"><p>Lorem Ipsum something something something desc</p><textarea hidden></textarea></div>
+            <div class="hyperlinks">Hyperlinks  <button hidden>BACK</button> </div> -->
+        <div class="specialf">
+            <form method="POST" action="/add">
+            <input hidden type="text" name="mid" value='<%=mentee%>'>
+            <button type="submit"><img src="/images/plus.jpeg">
+            </button>
+        </form></div>
+    </div>
+    <form class=".updatef" method="POST" action="/update" hidden>
+        <input type="text" name="mid" value="">
+        <input type="text" name="number" value="">
+        <input type="text" name="heading" value="">
+        <input type="text" name="description" value="">
+        <input type="text" name="duration" value="">
+    </form>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function console1(hello){
+        console.log(hello)
+    }
+    function theOtherListener(event){
+        var s=event.currentTarget.parentElement.parentElement;
+        console.log(s)
+        s.classList.remove("animated")
+        s.classList.add("reanimated")
+        console.log(s.querySelector(".description>textarea"))
+
+        s.querySelector(".description>p").removeAttribute("hidden")
+        s.querySelector(".description>textarea").setAttribute("hidden","true")
+
+
+        s.querySelector(".completion-time>p").removeAttribute("hidden")
+        s.querySelector(".completion-time>textarea").setAttribute("hidden","true")
+
+        s.querySelector(".number>.heading").removeAttribute("hidden")
+        s.querySelector(".number>textarea").setAttribute("hidden","true")
+
+        s.querySelector(".commit").setAttribute("hidden",true)
+
+        
+        event.currentTarget.removeEventListener("click",theOtherListener);
+        $(this).parent().parent().find(".link-list").slideUp()
+        $(this).parent().fadeOut(100);
+        // s.querySelector(".link-list").setAttribute("hidden","true")
+  setTimeout(function(s){
+    document.querySelectorAll(".module").forEach(function(obj){obj.addEventListener("click",theListener)})
+s.classList.remove("reanimated")
+ console.log(s);
+},600,s)
+    }
+    ;
+    function theListener(event){
+        event.currentTarget.classList.add("animated");
+        // event.currentTarget.querySelector("commit").removeAttribute("hidden")
+        // event.currentTarget.querySelector(".commit").removeAttribute("hidden")
+        event.currentTarget.querySelector(".commit").classList.add("revelio");
+        var hy=$(this)
+        setTimeout(function(){hy.find(".commit").slideDown(350)},300)
+        document.querySelectorAll(".module").forEach(function(obj1){
+            obj1.removeEventListener("click",theListener);
+        })
+
+        var s=event.currentTarget.querySelector(".description>p").innerHTML;
+        event.currentTarget.querySelector(".description>textarea").value=s;
+        event.currentTarget.querySelector(".description>p").setAttribute("hidden","true")
+        event.currentTarget.querySelector(".description>textarea").removeAttribute("hidden")
+
+        s=event.currentTarget.querySelector(".completion-time>p").innerHTML;
+        event.currentTarget.querySelector(".completion-time>p").setAttribute("hidden","true")
+        event.currentTarget.querySelector(".completion-time>textarea").value=s;
+        event.currentTarget.querySelector(".completion-time>textarea").removeAttribute("hidden")
+console.log("yo")
+        s=event.currentTarget.querySelector(".number>.heading").innerHTML;
+console.log("yo")
+        event.currentTarget.querySelector(".number>.heading").setAttribute("hidden","true")
+        event.currentTarget.querySelector(".number>textarea").value=s;
+        event.currentTarget.querySelector(".number>textarea").removeAttribute("hidden")
+
+        event.currentTarget.querySelector("button").addEventListener("click",theOtherListener);
+        // event.currentTarget.querySelector(".link-list").removeAttribute("hidden")
+        // $(this).find(".link-list").slideUp()
+        console.log($(this).find(".link-list").slideDown());
+        // document.querySelectorAll(".module").forEach(function(obj1){
+        //     obj1.style.opacity=0.5
+        // })
+        // event.currentTarget.style.opacity=3;
+        // document.querySelector("h1").classList.add("revelio")
+        // console.log(document.querySelector("h1"))
+    }
+    document.querySelectorAll(".module").forEach(function(obj){
+        obj.addEventListener("click",theListener)
+  }
+)
+$(".commit").fadeToggle(0);
+function postModule(event){
+    var x=document.querySelector("body>form");
+    console.log(x)
+    x.querySelectorAll("input")[0].value=document.querySelector(".specialf input").value
+    x.querySelectorAll("input")[1].value=event.currentTarget.parentElement.parentElement.querySelector(".number>p").innerHTML.slice(7,100)
+    x.querySelectorAll("input")[2].value=event.currentTarget.parentElement.parentElement.querySelector(".number>textarea").value
+    x.querySelectorAll("input")[3].value=event.currentTarget.parentElement.parentElement.querySelector(".description>textarea").value
+    x.querySelectorAll("input")[4].value=event.currentTarget.parentElement.parentElement.querySelector(".completion-time>textarea").value;
+    x.submit();
+}
+// fetch('http://localhost:3000/update', {
+//     method: 'POST', 
+//     headers: {
+//      'Content-Type': 'application/x-www-form-urlencoded' // Set the content type to JSON
+//     },
+//     body:data 
+// }).then(function(){
+//     window.location.reload();
+// })
+</script>
+</html>

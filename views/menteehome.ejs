@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Mentor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/menteehome.css">
+</head>
+<body>
+    <h1 class="text-center">Advance<text>ment</text></h1>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Find Your Mentor</div>
+            <ul class="nav-links">
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/my-requests">Your Requests</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+
+<!--      
+        <div class="mb-4">
+            <label for="category">Select Category:</label>
+            <select id="category" class="form-control" onchange="filterMentors()">
+                <option value="all">All</option>
+                <option value="Software">Software</option>
+                <option value="Management">Management</option>
+                <option value="Data Science">Data Science</option>
+                <option value="AI">AI</option>
+            </select>
+        </div> -->
+
+       
+        <div class="row" id="mentorCards">
+            <% mentors.forEach(mentor => { %>
+                <div class="col-md-6 mb-3 mentor-card">
+                    <div class="card h-100 d-flex flex-row align-items-center">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <h5 class="card-title text-center"><%= mentor.fullname %></h5>
+                            <p class="card-text"><strong>Price-cap:</strong>₹<%= mentor.price %></p>
+                            <p class="card-text"><strong>Organization:</strong> <%= mentor.organisation %></p>
+                            <p class="card-text"><strong>Categories:</strong> <%= mentor.card %></p>
+                        </div>
+                        <div class="image-container">
+                            <img src="<%= mentor.src %>" alt="<%= mentor.fullname %>" class="rounded-circle img-fluid">
+                        </div>
+                        <form action="/mentor-details" method="POST" hidden><input name= "mentor" type="text" value='<%=mentor.mid%>'></form>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+    <script type="text/javascript">
+        document.querySelectorAll(".card").forEach((element)=>{
+            element.addEventListener("click",function(event){
+                event.currentTarget.querySelector("form").submit();
+            })
+        })
+        // function filterMentors() {
+        //     const category = document.getElementById('category').value.toLowerCase();
+        //     const cards = document.querySelectorAll('.mentor-card');
+
+        //     cards.forEach(card => {
+        //         const categories = card.getAttribute('data-categories').toLowerCase();
+        //         if (category === 'all' || categories.includes(category)) {
+        //             card.style.display = '';
+        //         } else {
+        //             card.style.display = 'none';
+        //         }
+        //     });
+        // }
+    </script>
+</body>
+</html>

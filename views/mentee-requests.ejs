@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdvanceMent</title>
+    <link rel="stylesheet" href="/styles/mentee-requests.css">
+</head>
+<body>
+    <header class="header">
+        <button class="profile-button"><a href="/profile">Your Profile</a></button>
+        <h1 class="title">Advance<span class="colorit">ment</span></h1>
+    </header>
+    <h1 class="request">Your Requests</h1>
+    <%for(var i=0;i<mentees.length;i++){%>
+    <div class="container">
+
+        <div class="mentee-box">
+            <div class="mentee-image">
+                <img alt="Mentee Image" src='<%=mentees[i].src?mentees[i].src:"/images/Default.png"%>'>
+            </div>
+
+            <div class="mentee-name">
+                <h3><%=mentees[i].name%></h3>
+            </div>
+
+            <div class="mentee-description">
+                <p><%=mentees[i].description%></p>
+            </div>
+
+            <div class="chart-icon">
+                <form action="/view-modules" method="POST">
+                <input hidden type="text" name="mid" value='<%=mentees[i].mid%>'>
+                <button name="mid" type="button">
+                    <img src="/images/Chart.jpeg" alt="Chart Icon">
+                </button>
+                </form>
+            </div>
+
+            <div class="video-link">
+                <a href='<%=((mentees[i].meet!=null && mentees[i].meet!="")?mentees[i].meet:'')%>' target="_blank"><img src="/images/VideoCall.png"/></a>
+            </div>
+
+            <div class="score">
+                <p>Score: <%=mentees[i].quality?mentees[i].quality:"Not available"%></p>
+            </div>
+            
+            <div class="complete-button">
+                <%if(mentees[i].meet==null ||mentees[i].meet==""){%>
+                <p>No Meet Scheduled</p>
+                <%}else{%>
+                    <%const date = new Date(mentees[i].meetdate);%>
+                    <%const formattedDate=date.toDateString()%>
+                    <p>Meet Scheduled On: <%=formattedDate%></p>
+                    <p>Meet Time: <%=mentees[i].meettime%></p>
+                <%}%>
+            </div>
+
+            <div hidden class="mid"><%=mentees[i].mid%></div>
+        </div>
+        <%}%>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+    $('.chart-icon').on('click', function(event) {
+    postModule(event);
+});
+    function postModule(event){
+        console.log(event.currentTarget.querySelector("button"))
+        event.currentTarget.querySelector("form").submit();
+    }
+    
+</script>
+</body>
+</html>

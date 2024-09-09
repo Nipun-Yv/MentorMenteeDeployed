@@ -1,0 +1,398 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+/* body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+} */
+h1{
+    font-size:3rem;
+}
+.navbar {
+    background-color: #004d00; 
+    color: white;
+    padding: 15px 0;
+    border-bottom: 4px solid #00b33c; 
+    margin-top:-2%;
+}
+text{
+    color:#8dedad;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #79f4a2;
+}
+
+h1 {
+    color: #343a40;
+    margin-bottom: -12%;;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #f1f1f1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.card-text {
+    color: #555555;
+    margin-bottom: 15px;
+}
+
+.card-body {
+    padding: 20px;
+}
+.detail-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.detail-card .card-img {
+    object-fit: cover;
+    height: 100%;
+}
+
+.detail-card .card-body {
+    padding: 30px;
+    background-color: #f8f9fa;
+}
+
+.detail-card .card-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.detail-card .text-muted {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.detail-card .card-text {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555555;
+}
+
+.detail-card hr {
+    border-top: 1px solid #e9ecef;
+    margin: 20px 0;
+}
+
+.detail-card .btn-lg {
+    margin-right: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.detail-card .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.detail-card .btn-success:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.detail-card .btn-outline-info:hover {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #ffffff;
+}
+.btn-linkedin {
+    background-color: #0077b5;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-linkedin:hover {
+    background-color: #005582;
+    color: white;
+}
+
+.btn-follow {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-follow:hover {
+    background-color: #1e7d32;
+    color: white;
+}
+
+.btn-contact {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-contact:hover {
+    background-color: #117a8b;
+    color: white;
+}
+
+.btn-lg i {
+    margin-right: 8px;
+}
+.post-card {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.post-card .card-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.post-card .card-text {
+    color: #555;
+}
+.mentor-profile img {
+    margin: 20px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .mentor-profile h2 {
+    margin-top: 20px;
+  }
+  
+  .icons a {
+    margin-right: 10px;
+  }
+  
+  .posts-section .post {
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+.card-img {
+    margin: 10px;
+    border-right: 1px solid #ddd; 
+}
+
+
+.btn-linkedin {
+    background-color: #0077b5;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-linkedin:hover {
+    background-color: #005582;
+    color: white;
+}
+
+
+.btn-follow {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-follow:hover {
+    background-color: #1e7d32;
+    color: white;
+}
+
+
+.btn-contact {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-contact:hover {
+    background-color: #117a8b;
+    color: white;
+}
+
+
+.btn-plans {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-plans:hover {
+    background-color: #d39e00;
+    color: white;
+}
+.btn-lg i {
+    margin-right: 8px;
+}
+
+.card-img {
+
+    border-radius: 10px; 
+
+}
+.card-body {
+    border-left: 2px solid #ccc; 
+    padding-left: 20px; 
+}
+
+.detail-card .row.no-gutters {
+    margin: 10px;
+}
+.card-img.img-fluid {
+    max-width: 100%; 
+    height: auto; 
+}
+/* OVER HERRRRRRRRRR*/
+body {
+    background-color: #f0f4f3;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    background-color:green;
+    padding:2%;
+    margin-bottom: 30px;
+    font-weight:700;
+    color:white;
+}
+.row{
+    height:20vw!important;
+}
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    width: 100%; /* Fixed width relative to viewport width */
+    height: 100%; /* Fixed height relative to viewport width */
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Adjust gap between cards */
+    box-sizing: border-box; /* Ensure padding and border are included in width and height */
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #d8f3dc;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: green;
+}
+
+.card-text {
+    color: green;
+    margin-bottom: 10px;
+}
+
+.card-body {
+    padding: 15px; 
+    border-right: 2px solid #2d6a4f;
+    height: 100%;
+    overflow: hidden; 
+    border:2px solid rgb(38, 233, 38);
+}
+
+.image-container {
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:15vw;
+    background-color:green;
+    padding: 15px; /* Padding around the image */
+}
+
+.image-container img {
+    border: 3px solid greenyellow;
+    width: 10vw; 
+    height: 10vw; 
+    object-fit: cover;
+    border-radius: 50%; /* Circular image */
+}
+
+.mentor-card {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Make sure the card body fills the card height */
+    flex-direction: row;
+    gap: 10px; /* Gap between content and image */
+}
+

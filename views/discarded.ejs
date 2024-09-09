@@ -1,0 +1,54 @@
+<!-- </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="./styles/profile.css">
+</head>
+<body>
+
+    <div class="profile-container">
+        <div class="profile-image">
+            <img alt="Profile Image" class="circle-img" src='<%=src?src:"/images/default.png"%>'>
+        </div>
+        <div class="profile-details">
+            <form id="profileForm" action="/profile" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value=<%=fullname%> disabled>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" disabled value=<%=username%> >
+
+                <label for="organisation">Organisation:</label>
+                <input type="text" id="organisation" name="organisation" disabled value=<%=organisation%> >
+
+                <label for="credentials">Credentials:</label>
+                <textarea id="credentials" name="credentials" rows="2" disabled><%=credentials?credentials:null%></textarea>
+
+                <label for="linkedin">LinkedIn Profile:</label>
+                <input type="url" id="linkedin" name="linkedin" disabled value=<%=linkedin%>>
+
+                <label for="pricing">Pricing Cap:</label>
+                <input type="text" id="pricing" name="pricing" disabled value='<%=price%>'>
+
+                <label for="tags">Tags:</label>
+                <div class="tags-container">
+                    <label><input type="checkbox" name="Blockchain" value="Blockchain" {<%=tags.includes('Blockchain') ? 'checked' : ''%> disabled>Blockchain</label>
+                    <label><input type="checkbox" value="AI" <%=tags.includes('AI') ? 'checked' : ''%> disabled>AI</label>
+                    <label><input type="checkbox" value="Software Development" <%=tags.includes('Software Development') ? 'checked' : ''%> disabled>Software Development</label>
+                    <label><input type="checkbox" value="Chip Manufacturing" <%=tags.includes('Chip Manufacturing') ? 'checked' : ''%> disabled>Chip Manufacturing</label>
+                    <label><input type="checkbox" value="Management" <%=tags.includes('Management') ? 'checked' : ''%> disabled>Management</label>
+                    <label><input type="checkbox" value="Data Science" <%=tags.includes('Data Science') ? 'checked' : ''%> disabled>Data Science</label>
+                </div>                
+                <button type="button" id="editButton">Edit</button>
+                <button type="submit" id="submitButton" style="display: none;">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/scripts/profile.js"></script>
+
+</body>
+</html> --> 
