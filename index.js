@@ -174,13 +174,13 @@ app.post("/profile",async (req,res)=>{
           await client.send('Network.clearBrowserCache');
           await browser.close();
         await db.query("update mentors set fullname=$1,src=$2,credentials=$3,linkedin=$4,organisation=$5,price=$6,card=$7 where mid=$8",
-          [req.body.name,profilePictureUrl,req.body.credentials,req.body.linkedin,req.body.organisation,req.body.pricing?req.body.pricing:null,req.body.tags,req.user.mid]
+          [req.body.name,profilePictureUrl,req.body.credentials,req.body.linkedin,req.body.organisation,((req.body.pricing!=""&&req.body.pricing!=null)?req.body.pricing:null),req.body.tags,req.user.mid]
         )
         res.redirect("/profile");
       }
       else{
         await db.query("update mentors set fullname=$1,credentials=$2,linkedin=$3,organisation=$4,price=$5,card=$6 where mid=$7",
-          [req.body.name,req.body.credentials,req.body.linkedin,req.body.organisation,req.body.pricing,req.body.tags,req.user.mid]
+          [req.body.name,req.body.credentials,req.body.linkedin,req.body.organisation,((req.body.pricing!=""&&req.body.pricing!=null)?req.body.pricing:null),req.body.tags,req.user.mid]
         )
         res.redirect("/profile");
       }
