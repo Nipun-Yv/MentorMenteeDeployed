@@ -234,7 +234,8 @@ app.post("/register",async (req,res)=>{
         if (err) {
           console.error("Error hashing password:", err);
         } else {
-          const result=await db.query("Insert into mentors(fullname,username,pass,organisation) values ($1,$2,$3,$4) RETURNING *",[req.body.full_name,req.body.email,hash,req.body.organisation]);
+          const result1=await db.query("select * from mentors");
+          const result=await db.query("Insert into mentors(fullname,username,pass,organisation,mid) values ($1,$2,$3,$4,$5) RETURNING *",[req.body.full_name,req.body.email,hash,req.body.organisation,result1.rowCount+1]);
           await db.query("Insert into status values ($1,$2)",[result.rows[0].username,'M']);
           res.redirect("/")
         }
@@ -245,10 +246,12 @@ app.post("/register",async (req,res)=>{
         if (err) {
           console.error("Error hashing password:", err);
         } else {
-          const result=await db.query("Insert into mentees(fullname,username,pass,organisation) values ($1,$2,$3,$4) RETURNING *",[req.body.full_name,req.body.email,hash,req.body.organisation]);
+          const result1=await db.query("select * from mentees");
+          const result=await db.query("Insert into mentees(fullname,username,pass,organisation,mid) values ($1,$2,$3,$4,$5) RETURNING *",[req.body.full_name,req.body.email,hash,req.body.organisation,result1.rowCount+1]);
           await db.query("Insert into status values ($1,$2)",[result.rows[0].username,'E']);
           const user1={mid:result.rows[0].mid,role:"E"};
-          res.redirect("/");
+          console.log(user1);
+          res.redirect("/"); 
         }
       });
     }
@@ -355,8 +358,8 @@ app.post("/update",async(req,res)=>{
   if(req.isAuthenticated()){
   console.log(req.body)
   try{
-      const result=await db.query("Update modules set heading=$1, duration=$2, description=$3 where Mno=$4 and mentor_id=$5 and mentee_id=$6",[
-          req.body.heading, req.body.duration,req.body.description,Number(req.body.number),req.user.mid,req.body.mid]
+      const result=await db.query("Update modules set heading=$1, duration=$2, description=$3,hyperlinks=$4 where Mno=$5 and mentor_id=$6 and mentee_id=$7",[
+          req.body.heading, req.body.duration,req.body.description,req.body.hyperlinks,Number(req.body.number),req.user.mid,req.body.mid]
       )
       try{
       const result1=await db.query("SELECT * FROM modules where mentor_id=$1 and mentee_id=$2 order by mno",[req.user.mid,req.body.mid]);
@@ -377,7 +380,7 @@ else{
   res.redirect("/");
 }
 })
-//--Mentee Nodule
+
 app.post("/view-modules",async(req,res)=>{
   if(req.isAuthenticated() && req.user.role=="E"){
   try{
@@ -394,7 +397,7 @@ app.post("/view-modules",async(req,res)=>{
     res.redirect("/");
   }
 })
-//Meet related routing
+
 app.post("/meet",async (req,res)=>{
   if(req.isAuthenticated() && req.user.role=="M"){
     try{

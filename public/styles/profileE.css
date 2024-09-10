@@ -138,3 +138,9 @@ button:hover {
         padding: 10px;
     }
 }
+a{
+    background-color:green;
+    text-decoration:none;
+    padding:1%;
+    color:white;
+}
