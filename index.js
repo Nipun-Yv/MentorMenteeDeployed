@@ -298,7 +298,7 @@ passport.use(new Strategy(async function verify(username,password,cb){
     }
     catch(err){
         console.log(err);
-        cb("Internal Server Error");
+        cb("User Not found");
     }
 }))
 passport.serializeUser((details,cb)=>{
