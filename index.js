@@ -159,20 +159,21 @@ app.post("/profile",async (req,res)=>{
   if(req.isAuthenticated()){
     if(req.user.role=="M"){
       if(req.body.linkedin!=""){
-         const browser = await puppeteer.launch({ headless: true});
-         const page = await browser.newPage();
-         await page.goto(req.body.linkedin);
-         console.log("Done");
-         await page.waitForSelector('img');
-         const profilePictureUrl = await page.evaluate(() => {
-            var img = document.querySelectorAll("#main-content img");
-            console.log(img[1].src);
-             return img[1].src;
-            });
-          const client = await page.createCDPSession();
-          await client.send('Network.clearBrowserCookies');
-          await client.send('Network.clearBrowserCache');
-          await browser.close();
+         // const browser = await puppeteer.launch({ headless: true});
+         // const page = await browser.newPage();
+         // await page.goto(req.body.linkedin);
+         // console.log("Done");
+         // await page.waitForSelector('img');
+         // const profilePictureUrl = await page.evaluate(() => {
+         //    var img = document.querySelectorAll("#main-content img");
+         //    console.log(img[1].src);
+         //     return img[1].src;
+         //    });
+         //  const client = await page.createCDPSession();
+         //  await client.send('Network.clearBrowserCookies');
+         //  await client.send('Network.clearBrowserCache');
+         //  await browser.close();
+        const profilePictureUrl="";
         await db.query("update mentors set fullname=$1,src=$2,credentials=$3,linkedin=$4,organisation=$5,price=$6,card=$7 where mid=$8",
           [req.body.name,profilePictureUrl,req.body.credentials,req.body.linkedin,req.body.organisation,((req.body.pricing!=""&&req.body.pricing!=null)?req.body.pricing:null),req.body.tags,req.user.mid]
         )
@@ -187,20 +188,21 @@ app.post("/profile",async (req,res)=>{
     }
     else{
       if(req.body.linkedin!=""){
-         const browser = await puppeteer.launch({ headless: true});
-         const page = await browser.newPage();
-         await page.goto(req.body.linkedin);
-         console.log("Done");
-         await page.waitForSelector('img');
-         const profilePictureUrl = await page.evaluate(() => {
-            var img = document.querySelectorAll("#main-content img");
-            console.log(img[1].src);
-             return img[1].src;
-            });
-          const client = await page.createCDPSession();
-          await client.send('Network.clearBrowserCookies');
-          await client.send('Network.clearBrowserCache');
-          await browser.close();
+         // const browser = await puppeteer.launch({ headless: true});
+         // const page = await browser.newPage();
+         // await page.goto(req.body.linkedin);
+         // console.log("Done");
+         // await page.waitForSelector('img');
+         // const profilePictureUrl = await page.evaluate(() => {
+         //    var img = document.querySelectorAll("#main-content img");
+         //    console.log(img[1].src);
+         //     return img[1].src;
+         //    });
+         //  const client = await page.createCDPSession();
+         //  await client.send('Network.clearBrowserCookies');
+         //  await client.send('Network.clearBrowserCache');
+         //  await browser.close();
+        const profilePictureUrl="";
         await db.query("update mentees set fullname=$1,src=$2,description=$3,linkedin=$4,organisation=$5 where mid=$6",
           [req.body.name,profilePictureUrl,req.body.description,req.body.linkedin,req.body.organisation,req.user.mid]
         )
