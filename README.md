@@ -1,9 +1,9 @@
-Youtube Video Link: https://www.youtube.com/watch?v=k0etFC88PTE
-PPT Link:https://drive.google.com/file/d/1XFRpnZlEGSu-4aSsjNY6Vsumjgked8mH/view?usp=sharing
+Youtube Video Link: https://www.youtube.com/watch?v=k0etFC88PTE<br/>
+PPT Link:https://drive.google.com/file/d/1XFRpnZlEGSu-4aSsjNY6Vsumjgked8mH/view?usp=sharing<br/>
 Live Deployment Link(Meets can only be created by authorised test users(OAuth) as the website hasn't been verified, I've added manasmadan08@gmail.com as an authorised user):
-https://mentormenteedeployed.onrender.com
+https://mentormenteedeployed.onrender.com<br/>
 
-Local deployment:The project uses environment variables(api keys, payment gateway links(RazorPay)) and is deployed so we asked for permission and they said to add a pdf(as the live deployment uses it's own .env)
+Local deployment:The project uses environment variables(api keys, payment gateway links(RazorPay)) and is deployed so we asked for permission and they said to add a pdf(as the live deployment uses it's own .env)<br/>
 
 clone the project <br/>
 run npm i <br/>
