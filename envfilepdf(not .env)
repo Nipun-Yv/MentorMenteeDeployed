@@ -1,0 +1,10 @@
+CLIENT_ID=1024237851110-1guslhi7rggkoqniet20kg4gci9bkf9q.apps.googleusercontent.com
+REDIRECT_URL=http://localhost:3000/oauth2callback
+CLIENT_SECRET=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  
+ANTHROPIC_API_KEY=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
+PGHOST=crflmrjv2p9s73csg8d0-a.singapore-postgres.render.com
+PGPORT=5432
+PGUSER=advancement_user
+PGPASSWORD=x6K9sa9bJ8p22fDjsDCmOaLfxeOEt3Px
+PGDATABASE=advancement
+RAZOR_PAY=https://rzp.io/l/yIW5WkRvP
