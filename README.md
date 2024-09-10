@@ -1,6 +1,14 @@
 Youtube Video Link: https://www.youtube.com/watch?v=k0etFC88PTE<br/>
 PPT Link:https://drive.google.com/file/d/1XFRpnZlEGSu-4aSsjNY6Vsumjgked8mH/view?usp=sharing<br/>
 Live Deployment Link(Meets can only be created by authorised test users(OAuth) as the website hasn't been verified, I've added manasmadan08@gmail.com as an authorised user):
+you can use <br/>
+Username:nipunyadav6504@gmail.com<br/>
+Password:Random<br/>
+to view a preconfigured and registered mentee portal<br/>
+or<br/>
+Username:pratyush@gmail.com<br/>
+Password:12345<br/>
+to view a preconfigured mentor portal:<br/>
 https://mentormenteedeployed.onrender.com<br/>
 
 Local deployment:The project uses environment variables(api keys, payment gateway links(RazorPay)) and is deployed so we asked for permission and they said to add a pdf(as the live deployment uses it's own .env)<br/>
